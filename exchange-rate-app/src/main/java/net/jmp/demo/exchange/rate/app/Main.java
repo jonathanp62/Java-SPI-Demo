@@ -30,12 +30,51 @@ package net.jmp.demo.exchange.rate.app;
  * SOFTWARE.
  */
 
+import net.jmp.demo.exchange.rate.ExchangeRate;
+
 import org.slf4j.LoggerFactory;
 
 import org.slf4j.ext.XLogger;
 
 public final class Main {
+    private final XLogger logger = new XLogger(LoggerFactory.getLogger(this.getClass().getName()));
+
+    private Main() {
+        super();
+    }
+
+    private void run() {
+        this.logger.entry();
+        this.logger.info("Begin running the application...");
+
+        this.listAllProviders();
+        this.listDefaultProvider();
+
+        this.logger.info("Completed running the application.");
+        this.logger.exit();
+    }
+
+    private void listAllProviders() {
+        this.logger.entry();
+
+        ExchangeRate.getAllProviders().forEach(provider -> {
+            this.logger.info("Found provider: {}", provider.getClass().getName());
+        });
+
+        this.logger.exit();
+    }
+
+    private void listDefaultProvider() {
+        this.logger.entry();
+
+        final var defaultProvider = ExchangeRate.getDefaultProvider();
+
+        this.logger.info("Default provider: {}", defaultProvider.getClass().getName());
+
+        this.logger.exit();
+    }
+
     public static void main(final String[] args) {
-        System.out.println("Hello from the app!");
+        new Main().run();
     }
 }

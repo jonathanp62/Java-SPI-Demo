@@ -313,6 +313,17 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
+      <groupId>net.jmp.demo.spi</groupId>
+      <artifactId>exchange-rate-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>net.jmp.demo.spi</groupId>
+      <artifactId>exchange-rate-impl</artifactId>
+      <version>${project.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>${slf4j.version}</version>
