@@ -30,5 +30,10 @@ package net.jmp.demo.exchange.rate.api;
  * SOFTWARE.
  */
 
-public class QuoteManager {
+import java.time.LocalDate;
+
+import java.util.List;
+
+public interface QuoteManager {
+    List<Quote> getQuotes(final String baseCurrency, final LocalDate date);
 }

@@ -30,5 +30,8 @@ package net.jmp.demo.exchange.rate.spi;
  * SOFTWARE.
  */
 
-public class ExchangeRateProvider {
+import net.jmp.demo.exchange.rate.api.QuoteManager;
+
+public interface ExchangeRateProvider {
+    QuoteManager create();
 }

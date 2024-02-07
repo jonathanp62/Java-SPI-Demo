@@ -30,5 +30,57 @@ package net.jmp.demo.exchange.rate.api;
  * SOFTWARE.
  */
 
-public class Quote {
+import java.math.BigDecimal;
+
+import java.time.LocalDate;
+
+public final class Quote {
+    private String currency;
+    private BigDecimal ask;
+    private BigDecimal bid;
+    private LocalDate date;
+
+    private Quote() {
+        super();
+    }
+
+    public Quote(final String currency, final BigDecimal ask, final BigDecimal bid) {
+        super();
+
+        this.currency = currency;
+        this.ask = ask;
+        this.bid = bid;
+    }
+
+    public String getCurrency() {
+        return this.currency;
+    }
+
+    public void setCurrency(final String currency) {
+        this.currency = currency;
+    }
+
+    public BigDecimal getAsk() {
+        return this.ask;
+    }
+
+    public void setAsk(final BigDecimal ask) {
+        this.ask = ask;
+    }
+
+    public BigDecimal getBid() {
+        return this.bid;
+    }
+
+    public void setBid(final BigDecimal bid) {
+        this.bid = bid;
+    }
+
+    public LocalDate getDate() {
+        return this.date;
+    }
+
+    public void setDate(final LocalDate date) {
+        this.date = date;
+    }
 }

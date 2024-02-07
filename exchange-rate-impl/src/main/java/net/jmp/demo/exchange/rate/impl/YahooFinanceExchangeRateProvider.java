@@ -30,5 +30,12 @@ package net.jmp.demo.exchange.rate.impl;
  * SOFTWARE.
  */
 
-public class YahooFinanceExchangeRateProvider {
+import net.jmp.demo.exchange.rate.api.QuoteManager;
+import net.jmp.demo.exchange.rate.spi.ExchangeRateProvider;
+
+public class YahooFinanceExchangeRateProvider implements ExchangeRateProvider {
+    @Override
+    public QuoteManager create() {
+        return new YahooQuoteManagerImpl();
+    }
 }

@@ -30,5 +30,12 @@ package net.jmp.demo.exchange.rate.exception;
  * SOFTWARE.
  */
 
-public class ProviderNotFoundException {
+public final class ProviderNotFoundException extends RuntimeException {
+    public ProviderNotFoundException() {
+        super();
+    }
+
+    public ProviderNotFoundException(final String message) {
+        super(message);
+    }
 }

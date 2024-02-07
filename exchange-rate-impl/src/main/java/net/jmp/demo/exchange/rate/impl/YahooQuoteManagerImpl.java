@@ -30,5 +30,17 @@ package net.jmp.demo.exchange.rate.impl;
  * SOFTWARE.
  */
 
-public class YahooQuoteManagerImpl {
+import java.time.LocalDate;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import net.jmp.demo.exchange.rate.api.Quote;
+import net.jmp.demo.exchange.rate.api.QuoteManager;
+
+public class YahooQuoteManagerImpl implements QuoteManager {
+    @Override
+    public List<Quote> getQuotes(final String baseCurrency, final LocalDate date) {
+        return new ArrayList<>();
+    }
 }

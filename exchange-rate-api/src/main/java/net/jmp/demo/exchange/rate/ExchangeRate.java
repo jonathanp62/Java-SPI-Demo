@@ -30,5 +30,43 @@ package net.jmp.demo.exchange.rate;
  * SOFTWARE.
  */
 
-public class ExchangeRate {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ServiceLoader;
+
+import net.jmp.demo.exchange.rate.exception.ProviderNotFoundException;
+
+import net.jmp.demo.exchange.rate.spi.ExchangeRateProvider;
+
+public final class ExchangeRate {
+    private static final String DEFAULT_PROVIDER = "net.jmp.demo.exchange.rate.impl.YahooFinanceExchangeRateProvider";
+
+    private ExchangeRate() {
+        super();
+    }
+
+    public static List<ExchangeRateProvider> getAllProviders() {
+        final List<ExchangeRateProvider> services = new ArrayList<>();
+        final ServiceLoader<ExchangeRateProvider> loader = ServiceLoader.load(ExchangeRateProvider.class);
+
+        loader.forEach(services::add);
+
+        return services;
+    }
+
+    public static ExchangeRateProvider getDefaultProvider() {
+        return getProvider(DEFAULT_PROVIDER);
+    }
+
+    public static ExchangeRateProvider getProvider(String providerName) {
+        final ServiceLoader<ExchangeRateProvider> loader = ServiceLoader.load(ExchangeRateProvider.class);
+
+        for (final var provider : loader) {
+            if (providerName.equals(provider.getClass().getName())) {
+                return provider;
+            }
+        }
+
+        throw new ProviderNotFoundException("Exchange Rate provider '" + providerName + "' not found");
+    }
 }
