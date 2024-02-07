@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+
+Name: net/jmp/demo/exchange/rate
+Dependencies: org.slf4j, org.slf4j.ext
+Specification-Title: The exchange rate API
+Specification-Version: 0.2.0
+Specification-Vendor: Jonathan M. Parker
+Implementation-Title: net.jmp.demo.exchange.rate
+Implementation-Version: 0.2.0
+Implementation-Vendor: Jonathan M. Parker
