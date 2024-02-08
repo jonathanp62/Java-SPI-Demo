@@ -34,6 +34,11 @@ import java.time.LocalDate;
 
 import java.util.List;
 
+/*
+ * The quote manager interface. An instance of a class that implements this
+ * interface is returned by an ExchangeRateProvider implementation class.
+ */
+
 public interface QuoteManager {
     List<Quote> getQuotes(final String baseCurrency, final LocalDate date);
 }

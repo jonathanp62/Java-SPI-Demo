@@ -1,10 +1,11 @@
 package net.jmp.demo.exchange.rate.spi;
 
 /*
+ * (#)ExchangeRateProvider.java 0.3.0   02/08/2024
  * (#)ExchangeRateProvider.java 0.2.0   02/07/2024
  *
  * @author    Jonathan Parker
- * @version   0.2.0
+ * @version   0.3.0
  * @since     0.2.0
  *
  * MIT License
@@ -32,6 +33,11 @@ package net.jmp.demo.exchange.rate.spi;
 
 import net.jmp.demo.exchange.rate.api.QuoteManager;
 
+/*
+ * The exchange rate provider implementation supplies a single
+ * accessor method that returns an instance of a QuoteManager.
+ */
+
 public interface ExchangeRateProvider {
-    QuoteManager create();
+    QuoteManager getQuoteManager();
 }

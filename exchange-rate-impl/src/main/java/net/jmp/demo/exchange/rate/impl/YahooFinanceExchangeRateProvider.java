@@ -1,10 +1,11 @@
 package net.jmp.demo.exchange.rate.impl;
 
 /*
+ * (#)YahooFinanceExchangeRateProvider.java 0.3.0   02/08/2024
  * (#)YahooFinanceExchangeRateProvider.java 0.2.0   02/07/2024
  *
  * @author    Jonathan Parker
- * @version   0.2.0
+ * @version   0.3.0
  * @since     0.2.0
  *
  * MIT License
@@ -33,9 +34,23 @@ package net.jmp.demo.exchange.rate.impl;
 import net.jmp.demo.exchange.rate.api.QuoteManager;
 import net.jmp.demo.exchange.rate.spi.ExchangeRateProvider;
 
+import org.slf4j.LoggerFactory;
+
+import org.slf4j.ext.XLogger;
+
+/*
+ * This class is the default SPI implementation of the exchange rate
+ * API. It returns a quote manager implemented by Yahoo Finance.
+ */
+
 public class YahooFinanceExchangeRateProvider implements ExchangeRateProvider {
+    private final XLogger logger = new XLogger(LoggerFactory.getLogger(this.getClass().getName()));
+
     @Override
-    public QuoteManager create() {
+    public QuoteManager getQuoteManager() {
+        this.logger.entry();
+        this.logger.exit();
+
         return new YahooQuoteManagerImpl();
     }
 }

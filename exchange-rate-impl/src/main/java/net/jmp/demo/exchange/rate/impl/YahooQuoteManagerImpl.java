@@ -1,10 +1,11 @@
 package net.jmp.demo.exchange.rate.impl;
 
 /*
+ * (#)YahooQuoteManagerImpl.java    0.3.0   02/08/2024
  * (#)YahooQuoteManagerImpl.java    0.2.0   02/07/2024
  *
  * @author    Jonathan Parker
- * @version   0.2.0
+ * @version   0.3.0
  * @since     0.2.0
  *
  * MIT License
@@ -38,9 +39,25 @@ import java.util.List;
 import net.jmp.demo.exchange.rate.api.Quote;
 import net.jmp.demo.exchange.rate.api.QuoteManager;
 
+import org.slf4j.LoggerFactory;
+
+import org.slf4j.ext.XLogger;
+
+/*
+ * This class is the Yahoo Finance implementation of a quote manager.
+ */
+
 public class YahooQuoteManagerImpl implements QuoteManager {
+    private final XLogger logger = new XLogger(LoggerFactory.getLogger(this.getClass().getName()));
+
     @Override
     public List<Quote> getQuotes(final String baseCurrency, final LocalDate date) {
-        return new ArrayList<>();
+        this.logger.entry(baseCurrency, date);
+
+        final List<Quote> quotes = new ArrayList<>();
+
+        this.logger.exit(quotes);
+
+        return quotes;
     }
 }

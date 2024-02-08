@@ -1,10 +1,11 @@
 package net.jmp.demo.exchange.rate;
 
 /*
+ * (#)ExchangeRate.java 0.3.0   02/08/2024
  * (#)ExchangeRate.java 0.2.0   02/07/2024
  *
  * @author    Jonathan Parker
- * @version   0.2.0
+ * @version   0.3.0
  * @since     0.2.0
  *
  * MIT License
@@ -38,7 +39,18 @@ import net.jmp.demo.exchange.rate.exception.ProviderNotFoundException;
 
 import net.jmp.demo.exchange.rate.spi.ExchangeRateProvider;
 
+import org.slf4j.LoggerFactory;
+
+import org.slf4j.ext.XLogger;
+
+/*
+ * This class is the gateway into the SPI. Its purpose is to return a
+ * list of providers, the default provider, or a named provider.
+ */
+
 public final class ExchangeRate {
+    private static final XLogger LOGGER = new XLogger(LoggerFactory.getLogger("net.jmp.demo.exchange.rate.ExchangeRate"));
+
     private static final String DEFAULT_PROVIDER = "net.jmp.demo.exchange.rate.impl.YahooFinanceExchangeRateProvider";
 
     private ExchangeRate() {
@@ -46,27 +58,38 @@ public final class ExchangeRate {
     }
 
     public static List<ExchangeRateProvider> getAllProviders() {
+        LOGGER.entry();
+
         final List<ExchangeRateProvider> services = new ArrayList<>();
         final ServiceLoader<ExchangeRateProvider> loader = ServiceLoader.load(ExchangeRateProvider.class);
 
         loader.forEach(services::add);
 
+        LOGGER.exit(services);
+
         return services;
     }
 
     public static ExchangeRateProvider getDefaultProvider() {
+        LOGGER.entry();
+        LOGGER.exit(DEFAULT_PROVIDER);
+
         return getProvider(DEFAULT_PROVIDER);
     }
 
-    public static ExchangeRateProvider getProvider(String providerName) {
+    public static ExchangeRateProvider getProvider(final String providerName) {
+        LOGGER.entry(providerName);
+
         final ServiceLoader<ExchangeRateProvider> loader = ServiceLoader.load(ExchangeRateProvider.class);
 
         for (final var provider : loader) {
             if (providerName.equals(provider.getClass().getName())) {
+                LOGGER.exit(provider);
+
                 return provider;
             }
         }
 
-        throw new ProviderNotFoundException("Exchange Rate provider '" + providerName + "' not found");
+        throw new ProviderNotFoundException("Exchange rate provider '" + providerName + "' not found");
     }
 }

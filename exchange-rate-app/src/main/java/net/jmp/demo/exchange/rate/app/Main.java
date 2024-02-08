@@ -1,10 +1,11 @@
 package net.jmp.demo.exchange.rate.app;
 
 /*
+ * (#)Main.java 0.3.0   02/08/2024
  * (#)Main.java 0.2.0   02/07/2024
  *
  * @author    Jonathan Parker
- * @version   0.2.0
+ * @version   0.3.0
  * @since     0.2.0
  *
  * MIT License
@@ -30,7 +31,11 @@ package net.jmp.demo.exchange.rate.app;
  * SOFTWARE.
  */
 
+import java.time.LocalDate;
+
 import net.jmp.demo.exchange.rate.ExchangeRate;
+
+import net.jmp.demo.exchange.rate.spi.ExchangeRateProvider;
 
 import org.slf4j.LoggerFactory;
 
@@ -49,6 +54,8 @@ public final class Main {
 
         this.listAllProviders();
         this.listDefaultProvider();
+
+        this.getQuotes(ExchangeRate.getDefaultProvider());
 
         this.logger.info("Completed running the application.");
         this.logger.exit();
@@ -70,6 +77,18 @@ public final class Main {
         final var defaultProvider = ExchangeRate.getDefaultProvider();
 
         this.logger.info("Default provider: {}", defaultProvider.getClass().getName());
+
+        this.logger.exit();
+    }
+
+    private void getQuotes(final ExchangeRateProvider provider) {
+        this.logger.entry(provider);
+
+        final var quoteManager = provider.getQuoteManager();
+
+        if (quoteManager.getQuotes("USD", LocalDate.now()).isEmpty()) {
+            this.logger.info("No quotes returned");
+        }
 
         this.logger.exit();
     }
