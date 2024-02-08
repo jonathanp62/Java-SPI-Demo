@@ -40,4 +40,5 @@ import net.jmp.demo.exchange.rate.api.QuoteManager;
 
 public interface ExchangeRateProvider {
     QuoteManager getQuoteManager();
+    String getName();
 }

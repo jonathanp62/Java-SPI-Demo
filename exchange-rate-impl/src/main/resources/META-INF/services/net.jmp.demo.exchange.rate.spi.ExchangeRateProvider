@@ -1,7 +1,8 @@
+# (#)javax.shaded.xml.xpath.XPathFactory    0.3.0   02/08/2024
 # (#)javax.shaded.xml.xpath.XPathFactory    0.2.0   02/07/2024
 #
 # @author    Jonathan Parker
-# @version   0.2.0
+# @version   0.3.0
 # @since     0.2.0
 #
 # MIT License
@@ -32,4 +33,5 @@
 # and requires an implementation. The implementation is found in this jar, exchange-rate-impl.
 #
 
+net.jmp.demo.exchange.rate.impl.DemoExchangeRateProvider
 net.jmp.demo.exchange.rate.impl.YahooFinanceExchangeRateProvider

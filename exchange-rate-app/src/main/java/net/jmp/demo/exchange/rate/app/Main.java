@@ -64,9 +64,11 @@ public final class Main {
     private void listAllProviders() {
         this.logger.entry();
 
-        ExchangeRate.getAllProviders().forEach(provider -> {
-            this.logger.info("Found provider: {}", provider.getClass().getName());
-        });
+        if (this.logger.isInfoEnabled()) {
+            ExchangeRate.getAllProviders().forEach(provider -> {
+                this.logger.info("Found provider: {}", provider.getClass().getName());
+            });
+        }
 
         this.logger.exit();
     }
@@ -74,9 +76,11 @@ public final class Main {
     private void listDefaultProvider() {
         this.logger.entry();
 
-        final var defaultProvider = ExchangeRate.getDefaultProvider();
+        if (this.logger.isInfoEnabled()) {
+            final var defaultProvider = ExchangeRate.getDefaultProvider();
 
-        this.logger.info("Default provider: {}", defaultProvider.getClass().getName());
+            this.logger.info("Default provider: {}", defaultProvider.getClass().getName());
+        }
 
         this.logger.exit();
     }
@@ -85,9 +89,21 @@ public final class Main {
         this.logger.entry(provider);
 
         final var quoteManager = provider.getQuoteManager();
+        final var quotes = quoteManager.getQuotes("USD", LocalDate.now());
 
-        if (quoteManager.getQuotes("USD", LocalDate.now()).isEmpty()) {
-            this.logger.info("No quotes returned");
+        if (quotes.isEmpty()) {
+            if (this.logger.isInfoEnabled())
+                this.logger.info("No quotes returned from {}", provider.getName());
+        } else {
+            if (this.logger.isInfoEnabled()) {
+                this.logger.info("Retrieving USD quotes from {}", provider.getName());
+                this.logger.info(String.format("%14s%12s|%12s", "", "Ask", "Bid"));
+                this.logger.info("----------------------------------------");
+
+                quotes.forEach(quote -> {
+                    this.logger.info("USD --> {} : {}", quote.getCurrency(), String.format("%12f |%12f", quote.getAsk(), quote.getBid()));
+                });
+            }
         }
 
         this.logger.exit();

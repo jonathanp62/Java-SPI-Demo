@@ -1,12 +1,11 @@
 package net.jmp.demo.exchange.rate.impl;
 
 /*
- * (#)YahooFinanceExchangeRateProvider.java 0.3.0   02/08/2024
- * (#)YahooFinanceExchangeRateProvider.java 0.2.0   02/07/2024
+ * (#)DemoQuoteManagerImpl.java 0.3.0   02/08/2024
  *
  * @author    Jonathan Parker
  * @version   0.3.0
- * @since     0.2.0
+ * @since     0.3.0
  *
  * MIT License
  *
@@ -31,31 +30,50 @@ package net.jmp.demo.exchange.rate.impl;
  * SOFTWARE.
  */
 
+import java.math.BigDecimal;
+
+import java.time.LocalDate;
+
+import java.util.List;
+
+import net.jmp.demo.exchange.rate.api.Quote;
 import net.jmp.demo.exchange.rate.api.QuoteManager;
-import net.jmp.demo.exchange.rate.spi.ExchangeRateProvider;
 
 import org.slf4j.LoggerFactory;
 
 import org.slf4j.ext.XLogger;
 
 /*
- * This class is the default SPI implementation of the exchange rate
- * API. It returns a quote manager implemented by Yahoo Finance.
+ * This class is the demonstration implementation of a quote manager.
  */
 
-public class YahooFinanceExchangeRateProvider implements ExchangeRateProvider {
+public class DemoQuoteManagerImpl implements QuoteManager {
     private final XLogger logger = new XLogger(LoggerFactory.getLogger(this.getClass().getName()));
 
     @Override
-    public QuoteManager getQuoteManager() {
-        this.logger.entry();
-        this.logger.exit();
+    public List<Quote> getQuotes(final String baseCurrency, final LocalDate date) {
+        this.logger.entry(baseCurrency, date);
 
-        return new YahooQuoteManagerImpl();
+        final List<Quote> quotes = this.createDemoQuotes(baseCurrency, date);
+
+        this.logger.exit(quotes);
+
+        return quotes;
     }
 
-    @Override
-    public String getName() {
-        return "Yahoo Finance";
+    private List<Quote> createDemoQuotes(final String baseCurrency, final LocalDate date) {
+        this.logger.entry(baseCurrency, date);
+
+        final List<Quote> quotes = List.of(
+                new Quote(baseCurrency, BigDecimal.valueOf(23.345), BigDecimal.valueOf(25.554)),
+                new Quote(baseCurrency, BigDecimal.valueOf(2.345), BigDecimal.valueOf(2.554)),
+                new Quote(baseCurrency, BigDecimal.valueOf(234.5), BigDecimal.valueOf(255.4))
+        );
+
+        quotes.forEach(quote -> quote.setDate(date));
+
+        this.logger.exit(quotes);
+
+        return quotes;
     }
 }

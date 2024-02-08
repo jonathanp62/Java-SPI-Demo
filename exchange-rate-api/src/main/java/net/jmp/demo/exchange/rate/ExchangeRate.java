@@ -72,9 +72,17 @@ public final class ExchangeRate {
 
     public static ExchangeRateProvider getDefaultProvider() {
         LOGGER.entry();
-        LOGGER.exit(DEFAULT_PROVIDER);
 
-        return getProvider(DEFAULT_PROVIDER);
+        /*
+         * The default provider can be overridden by setting the following system property:
+         * - net.jmp.demo.exchange.rate.spi.ExchangeRateProvider
+         */
+
+        final String defaultProvider = System.getProperty("net.jmp.demo.exchange.rate.spi.ExchangeRateProvider", DEFAULT_PROVIDER);
+
+        LOGGER.exit(defaultProvider);
+
+        return getProvider(defaultProvider);
     }
 
     public static ExchangeRateProvider getProvider(final String providerName) {
