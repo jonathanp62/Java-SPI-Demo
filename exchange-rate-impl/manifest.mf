@@ -3,8 +3,8 @@ Manifest-Version: 1.0
 Name: net/jmp/demo/exchange/rate/impl
 Dependencies: net.jmp.demo.exchange.rate.api, net.jmp.demo.exchange.rate.spi, org.slf4j, org.slf4j.ext
 Specification-Title: The exchange rate implementation
-Specification-Version: 0.2.0
+Specification-Version: 0.4.0
 Specification-Vendor: Jonathan M. Parker
 Implementation-Title: net.jmp.demo.exchange.rate.impl
-Implementation-Version: 0.2.0
+Implementation-Version: 0.4.0
 Implementation-Vendor: Jonathan M. Parker

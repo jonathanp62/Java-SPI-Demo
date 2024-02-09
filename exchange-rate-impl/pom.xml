@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
+ @(#)pom.xml	0.4.0	02/09/2024
  @(#)pom.xml	0.3.0	02/08/2024
  @(#)pom.xml	0.2.0	02/07/2024
  @(#)pom.xml	0.1.0	02/06/2024
 
  @author    Jonathan Parker
- @version   0.3.0
+ @version   0.4.0
  @since     0.1.0
 
  MIT License
 
- Copyright (c) 2023, 2024 Jonathan M. Parker
+ Copyright (c) 2024 Jonathan M. Parker
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -39,7 +40,7 @@
   <parent>
     <groupId>net.jmp.demo.spi</groupId>
     <artifactId>spi-demo</artifactId>
-    <version>0.3.0</version>
+    <version>0.4.0</version>
     <relativePath/>
   </parent>
   <artifactId>exchange-rate-impl</artifactId>
