@@ -49,8 +49,8 @@
   <properties>
     <exchange-rate-api.version>${project.version}</exchange-rate-api.version>
     <exchange-rate-impl.version>${project.version}</exchange-rate-impl.version>
+    <jakarta-json-bind-api.version>3.0.0</jakarta-json-bind-api.version>
     <javax-json.version>1.1.4</javax-json.version>
-    <javax-json-bind-api.version>1.0</javax-json-bind-api.version>
     <logback.version>1.4.12</logback.version>
     <okhttp.version>4.12.0</okhttp.version>
     <slf4j.version>2.0.9</slf4j.version>
@@ -76,9 +76,9 @@
         <version>${okhttp.version}</version>
       </dependency>
       <dependency>
-        <groupId>javax.json.bind</groupId>
-        <artifactId>javax.json.bind-api</artifactId>
-        <version>${javax-json-bind-api.version}</version>
+        <groupId>jakarta.json.bind</groupId>
+        <artifactId>jakarta.json.bind-api</artifactId>
+        <version>${jakarta-json-bind-api.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jmp.demo.spi</groupId>
