@@ -1,11 +1,12 @@
 package net.jmp.demo.exchange.rate;
 
 /*
+ * (#)ExchangeRate.java 0.4.0   02/09/2024
  * (#)ExchangeRate.java 0.3.0   02/08/2024
  * (#)ExchangeRate.java 0.2.0   02/07/2024
  *
  * @author    Jonathan Parker
- * @version   0.3.0
+ * @version   0.4.0
  * @since     0.2.0
  *
  * MIT License
@@ -51,7 +52,7 @@ import org.slf4j.ext.XLogger;
 public final class ExchangeRate {
     private static final XLogger LOGGER = new XLogger(LoggerFactory.getLogger("net.jmp.demo.exchange.rate.ExchangeRate"));
 
-    private static final String DEFAULT_PROVIDER = "net.jmp.demo.exchange.rate.impl.YahooFinanceExchangeRateProvider";
+    private static final String DEFAULT_PROVIDER = "net.jmp.demo.exchange.rate.impl.InoFinanceExchangeRateProvider";
 
     private ExchangeRate() {
         super();

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
+ (#)logback.xml 0.4.0   02/09/2024
  (#)logback.xml 0.3.0   02/08/2024
  (#)logback.xml 0.2.0   02/07/2024
 
  @author   Jonathan Parker
- @version  0.3.0
+ @version  0.4.0
  @since    0.2.0
 
  MIT License
@@ -50,6 +51,12 @@
         <appender-ref ref="MAIN" />
     </logger>
     <logger name="net.jmp.demo.exchange.rate.impl.DemoQuoteManagerImpl" additivity="false" level="info">
+        <appender-ref ref="MAIN" />
+    </logger>
+    <logger name="net.jmp.demo.exchange.rate.impl.InoFinanceExchangeRateProvider" additivity="false" level="info">
+        <appender-ref ref="MAIN" />
+    </logger>
+    <logger name="net.jmp.demo.exchange.rate.impl.InoQuoteManagerImpl" additivity="false" level="info">
         <appender-ref ref="MAIN" />
     </logger>
     <logger name="net.jmp.demo.exchange.rate.impl.YahooFinanceExchangeRateProvider" additivity="false" level="info">

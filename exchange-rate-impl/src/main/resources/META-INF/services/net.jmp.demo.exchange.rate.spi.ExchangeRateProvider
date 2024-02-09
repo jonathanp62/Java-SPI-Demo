@@ -1,8 +1,9 @@
+# (#)javax.shaded.xml.xpath.XPathFactory    0.4.0   02/09/2024
 # (#)javax.shaded.xml.xpath.XPathFactory    0.3.0   02/08/2024
 # (#)javax.shaded.xml.xpath.XPathFactory    0.2.0   02/07/2024
 #
 # @author    Jonathan Parker
-# @version   0.3.0
+# @version   0.4.0
 # @since     0.2.0
 #
 # MIT License
@@ -30,8 +31,9 @@
 # This file is the Java service provider implementation specification
 #
 # The net.jmp.demo.exchange.rate.spi.ExchangeRateProvider is an API found in the exchange-rate-api jar
-# and requires an implementation. The implementation is found in this jar, exchange-rate-impl.
+# and requires an implementation. The implementations are found in this jar, exchange-rate-impl.
 #
 
 net.jmp.demo.exchange.rate.impl.DemoExchangeRateProvider
+net.jmp.demo.exchange.rate.impl.InoFinanceExchangeRateProvider
 net.jmp.demo.exchange.rate.impl.YahooFinanceExchangeRateProvider
