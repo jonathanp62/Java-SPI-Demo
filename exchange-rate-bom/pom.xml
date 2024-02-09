@@ -49,8 +49,12 @@
   <properties>
     <exchange-rate-api.version>${project.version}</exchange-rate-api.version>
     <exchange-rate-impl.version>${project.version}</exchange-rate-impl.version>
+    <javax-json.version>1.1.4</javax-json.version>
+    <javax-json-bind-api.version>1.0</javax-json-bind-api.version>
     <logback.version>1.4.12</logback.version>
+    <okhttp.version>4.12.0</okhttp.version>
     <slf4j.version>2.0.9</slf4j.version>
+    <yasson.version>3.0.3</yasson.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -67,6 +71,16 @@
         <scope>runtime</scope>
       </dependency>
       <dependency>
+        <groupId>com.squareup.okhttp3</groupId>
+        <artifactId>okhttp</artifactId>
+        <version>${okhttp.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.json.bind</groupId>
+        <artifactId>javax.json.bind-api</artifactId>
+        <version>${javax-json-bind-api.version}</version>
+      </dependency>
+      <dependency>
         <groupId>net.jmp.demo.spi</groupId>
         <artifactId>exchange-rate-api</artifactId>
         <version>${exchange-rate-api.version}</version>
@@ -75,6 +89,16 @@
         <groupId>net.jmp.demo.spi</groupId>
         <artifactId>exchange-rate-impl</artifactId>
         <version>${exchange-rate-impl.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse</groupId>
+        <artifactId>yasson</artifactId>
+        <version>${yasson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish</groupId>
+        <artifactId>javax.json</artifactId>
+        <version>${javax-json.version}</version>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
