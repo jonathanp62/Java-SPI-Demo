@@ -46,7 +46,6 @@
     A demonstration of the Java service provider interface
   </description>
   <properties>
-    <logback.version>1.4.12</logback.version>
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss zzz</maven.build.timestamp.format>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
@@ -54,7 +53,6 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <repository.manager>http://localhost:8081/nexus</repository.manager>
     <scm.url.base>svn://jonathan@localhost/IDEA</scm.url.base>
-    <slf4j.version>2.0.9</slf4j.version>
   </properties>
   <scm>
     <connection>scm:svn:${scm.url.base}/Exchange-Rate-Impl</connection>
@@ -79,6 +77,7 @@
   </developers>
   <modules>
     <module>exchange-rate-api</module>
+    <module>exchange-rate-bom</module>
     <module>exchange-rate-impl</module>
     <module>exchange-rate-app</module>
   </modules>
