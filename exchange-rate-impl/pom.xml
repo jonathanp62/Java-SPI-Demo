@@ -328,20 +328,8 @@
       <artifactId>okhttp</artifactId>
     </dependency>
     <dependency>
-      <groupId>jakarta.json.bind</groupId>
-      <artifactId>jakarta.json.bind-api</artifactId>
-    </dependency>
-    <dependency>
       <groupId>net.jmp.demo.spi</groupId>
       <artifactId>exchange-rate-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse</groupId>
-      <artifactId>yasson</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.glassfish</groupId>
-      <artifactId>javax.json</artifactId>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>

@@ -1,11 +1,12 @@
 package net.jmp.demo.exchange.rate.app;
 
 /*
+ * (#)Main.java 0.4.0   02/10/2024
  * (#)Main.java 0.3.0   02/08/2024
  * (#)Main.java 0.2.0   02/07/2024
  *
  * @author    Jonathan Parker
- * @version   0.3.0
+ * @version   0.4.0
  * @since     0.2.0
  *
  * MIT License
@@ -97,11 +98,9 @@ public final class Main {
         } else {
             if (this.logger.isInfoEnabled()) {
                 this.logger.info("Retrieving USD quotes from {}", provider.getName());
-                this.logger.info(String.format("%14s%12s|%12s", "", "Ask", "Bid"));
-                this.logger.info("----------------------------------------");
 
                 quotes.forEach(quote -> {
-                    this.logger.info("USD --> {} : {}", quote.getCurrency(), String.format("%12f |%12f", quote.getAsk(), quote.getBid()));
+                    this.logger.info(quote.toString());
                 });
             }
         }

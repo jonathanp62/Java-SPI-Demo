@@ -1,10 +1,11 @@
 package net.jmp.demo.exchange.rate.impl;
 
 /*
+ * (#)DemoQuoteManagerImpl.java 0.4.0   02/10/2024
  * (#)DemoQuoteManagerImpl.java 0.3.0   02/08/2024
  *
  * @author    Jonathan Parker
- * @version   0.3.0
+ * @version   0.4.0
  * @since     0.3.0
  *
  * MIT License
@@ -30,13 +31,12 @@ package net.jmp.demo.exchange.rate.impl;
  * SOFTWARE.
  */
 
-import java.math.BigDecimal;
-
 import java.time.LocalDate;
 
 import java.util.List;
 
 import net.jmp.demo.exchange.rate.api.Quote;
+import net.jmp.demo.exchange.rate.api.QuoteBuilder;
 import net.jmp.demo.exchange.rate.api.QuoteManager;
 
 import org.slf4j.LoggerFactory;
@@ -65,12 +65,10 @@ public class DemoQuoteManagerImpl implements QuoteManager {
         this.logger.entry(baseCurrency, date);
 
         final List<Quote> quotes = List.of(
-                new Quote(baseCurrency, BigDecimal.valueOf(23.345), BigDecimal.valueOf(25.554)),
-                new Quote(baseCurrency, BigDecimal.valueOf(2.345), BigDecimal.valueOf(2.554)),
-                new Quote(baseCurrency, BigDecimal.valueOf(234.5), BigDecimal.valueOf(255.4))
+                new QuoteBuilder().market("forex").symbol("FOREX_USDJMD").exchange("FOREX").shortSymbol("USDJMD").name("US Dollar/Jamaican Dollar").build(),
+                new QuoteBuilder().market("forex").symbol("FOREX_USDMXN").exchange("FOREX").shortSymbol("USDMXN").name("US Dollar/Mexican Peso").build(),
+                new QuoteBuilder().exchange("FOREX").shortSymbol("USDNLG").build()
         );
-
-        quotes.forEach(quote -> quote.setDate(date));
 
         this.logger.exit(quotes);
 

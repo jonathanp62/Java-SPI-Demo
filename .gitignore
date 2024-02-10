@@ -1,2 +1,5 @@
 .idea
 *.iml
+exchange-rate-api/target/
+exchange-rate-app/target/
+exchange-rate-impl/target/
