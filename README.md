@@ -1,9 +1,15 @@
-# Java Service Provider Interface (SPI) Demonstration
+# Java Service Provider Interface (SPI) 
+## Purpose
 
-This demonstration application is for the purpose of demonstrating the Java Service Provider Interface (SPI).
+The purpose of this application is the demonstration of the Java Service Provider Interface (SPI).
+An exchange rate scenario is built which has three (3) providers:
 
-Reference material:
+1. A demonstration provider which returns pre-constructed quotes
+2. An Ino finance provider which returns live quotes from a REST service
+3. A Yahoo finance provider which returns nothing.
 
-https://www.baeldung.com/java-spi
+## Reference material
 
-https://github.com/eugenp/tutorials/tree/master/core-java-modules/java-spi
+[Java Service Provider Interface](https://www.baeldung.com/java-spi)
+
+[Tutorial on GitHub](https://github.com/eugenp/tutorials/tree/master/core-java-modules/java-spi)
