@@ -1,5 +1,13 @@
+.gradle
 .idea
 *.iml
+buildSrc/.gradle
+buildSrc/build
+exchange-rate-api/build/
 exchange-rate-api/target/
+exchange-rate-app/build/
 exchange-rate-app/target/
+exchange-rate-impl/build/
 exchange-rate-impl/target/
+gradle
+gradlew
