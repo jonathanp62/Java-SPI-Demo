@@ -45,3 +45,15 @@ dependencies {
 }
 
 description = 'The exchange rate application'
+
+/*
+ * Execute with - gradle :exchange-rate-app:execProgram
+ */
+
+task execProgram(type: JavaExec) {
+    group = "Execution"
+    description = "Run the main class with JavaExecTask"
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = javaMainClass
+    allJvmArgs = ['-ea', '-Dlogback.configurationFile=/Users/Maestro/IDEA-Projects/SPI-Demo/config/logback.xml']
+}

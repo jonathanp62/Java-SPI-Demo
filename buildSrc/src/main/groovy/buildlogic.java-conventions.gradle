@@ -31,8 +31,17 @@
  */
 
 plugins {
+    id 'application'
     id 'java-library'
     id 'maven-publish'
+}
+
+ext {
+    javaMainClass = 'net.jmp.demo.exchange.rate.app.Main'
+}
+
+application {
+    mainClass.set(javaMainClass)
 }
 
 repositories {
